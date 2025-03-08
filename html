@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>COVID-19 Case Prediction</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        input, button { padding: 10px; margin: 10px; font-size: 16px; }
+        .result { margin-top: 20px; font-size: 20px; color: blue; }
+    </style>
+</head>
+<body>
+    <h1>COVID-19 Prediction Model</h1>
+    <form action="/predict" method="post">
+        <label>Enter Number of Days: </label>
+        <input type="number" name="days" required>
+        <button type="submit">Predict</button>
+    </form>
+    
+    {% if prediction %}
+        <div class="result">Predicted Cases: {{ prediction }}</div>
+    {% endif %}
+    
+    {% if error %}
+        <div class="result" style="color: red;">Error: {{ error }}</div>
+    {% endif %}
+</body>
+</html>
